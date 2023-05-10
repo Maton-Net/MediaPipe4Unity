@@ -1,11 +1,4 @@
-import argparse
-import glob
-import os
-import platform
-import shutil
-import stat
-import subprocess
-import sys
+import argparse,glob,os,platform,shutil,stat,subprocess,sys
 
 try:
   from ctypes import windll
