@@ -1,67 +1,15 @@
-# MediaPipe Unity Plugin
+# MediaPipe4Unity Plugin
 
-This is a Unity (2021.3.3f1) [Native Plugin](https://docs.unity3d.com/Manual/NativePlugins.html) to use [MediaPipe](https://github.com/google/mediapipe) (0.8.10).
-
-The goal of this project is to port the MediaPipe API (C++) _one by one_ to C# so that it can be called from Unity.\
-This approach may sacrifice performance when you need to call multiple APIs in a loop, but it gives you the flexibility to use MediaPipe instead.
+This plugin is supported by @Google, where you can fork the project from here (Plugin version 0.10.1, MediaPipe version 0.8.4)
 
 With this plugin, you can
 
 - Write MediaPipe code in C#.
 - Run MediaPipe's official solution on Unity.
 - Run your custom `Calculator` and `CalculatorGraph` on Unity.
-  - :warning: Depending on the type of input/output, you may need to write C++ code.
 
-## :smile_cat: Hello World!
+  **- :warning: Depending on the type of input/output, you may need to write C++ code.**
 
-Here is a Hello World! example.\
-Compare it with [the official code](https://github.com/google/mediapipe/blob/cf101e62a9d49a51be76836b2b8e5ba5c06b5da0/mediapipe/examples/desktop/hello_world/hello_world.cc)!
-
-```cs
-using Mediapipe;
-using UnityEngine;
-
-public sealed class HelloWorld : MonoBehaviour
-{
-    private const string _ConfigText = @"
-input_stream: ""in""
-output_stream: ""out""
-node {
-  calculator: ""PassThroughCalculator""
-  input_stream: ""in""
-  output_stream: ""out1""
-}
-node {
-  calculator: ""PassThroughCalculator""
-  input_stream: ""out1""
-  output_stream: ""out""
-}
-";
-
-    private void Start()
-    {
-        var graph = new CalculatorGraph(_ConfigText);
-        var poller = graph.AddOutputStreamPoller<string>("out").Value();
-        graph.StartRun().AssertOk();
-
-        for (var i = 0; i < 10; i++)
-        {
-            graph.AddPacketToInputStream("in", new StringPacket("Hello World!", new Timestamp(i))).AssertOk();
-        }
-
-        graph.CloseInputStream("in").AssertOk();
-        var packet = new StringPacket();
-
-        while (poller.Next(packet))
-        {
-            Debug.Log(packet.Get());
-        }
-        graph.WaitUntilDone().AssertOk();
-    }
-}
-```
-
-For more detailed usage, see [the API Overview](https://github.com/homuler/MediaPipeUnityPlugin/wiki/API-Overview) page or the tutorial on [the Getting Started page](https://github.com/homuler/MediaPipeUnityPlugin/wiki/Getting-Started).
 
 ## :hammer_and_wrench: Installation
 
@@ -121,21 +69,3 @@ If you've built native libraries for CPU (i.e. `--desktop cpu`), select `CPU` fo
 ### Android, iOS
 
 Make sure that you select `GPU` for inference mode before building the app, because `CPU` inference mode is not supported currently.
-
-## :book: Wiki
-
-https://github.com/homuler/MediaPipeUnityPlugin/wiki
-
-## :scroll: LICENSE
-
-[MIT](https://github.com/homuler/MediaPipeUnityPlugin/blob/master/LICENSE)
-
-Note that some files are distributed under other licenses.
-
-- MediaPipe ([Apache Licence 2.0](https://github.com/google/mediapipe/blob/e6c19885c6d3c6f410c730952aeed2852790d306/LICENSE))
-- emscripten ([MIT](https://github.com/emscripten-core/emscripten/blob/7c873832e933e86855f5ef5f7c6438f0e457c94e/LICENSE))
-   - `third_party/mediapipe_emscripten_patch.diff` contains code copied from emscripten
-- FontAwesome ([LICENSE](https://github.com/FortAwesome/Font-Awesome/blob/7cbd7f9951be31f9d06b6ac97739a700320b9130/LICENSE.txt))
-   - Sample scenes use Font Awesome fonts
-
-See also [Third Party Notices.md](https://github.com/homuler/MediaPipeUnityPlugin/blob/master/Third%20Party%20Notices.md).

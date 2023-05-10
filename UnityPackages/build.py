@@ -1,4 +1,4 @@
-import argparse,glob,os,platform,shutil,stat,subprocess,sys
+import argparse, glob, os, platform, shutil, stat, subprocess, sys
 
 try:
   from ctypes import windll
@@ -11,7 +11,7 @@ _BAZEL_OUT_PATH = 'bazel-out'
 _BUILD_PATH = 'build'
 _NUGET_PATH = '.nuget'
 _ANALYZER_PATH = os.path.join('Assets', 'Analyzers')
-_STREAMING_ASSETS_PATH = os.path.join('Assets', 'StreamingAssets')
+_STREAMING_ASSETS_PATH = os.path.join('UnityPackages/Assets', 'UnityPackages/StreamingAssets')
 _INSTALL_PATH = os.path.join('Packages', 'com.github.homuler.mediapipe', 'Runtime')
 
 class Console:
