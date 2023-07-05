@@ -14,7 +14,6 @@ With this plugin, you can
 
   **- :warning: Depending on the type of input/output, you may need to write C++ code.**
 
-
 ## :hammer_and_wrench: Installation
 
 This repository does not contain the required libraries (e.g. `libmediapipe_c.so`, `Google.Protobuf.dll`, etc), so you **need to build them** first.
