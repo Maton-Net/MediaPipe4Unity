@@ -19,7 +19,7 @@ With this plugin, you can
 
 This repository does not contain the required libraries (e.g. `libmediapipe_c.so`, `Google.Protobuf.dll`, etc), so you **need to build them** first.
 
-For a step-by-step guide, please refer to the [Installation Guide](https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide) on Wiki.
+For a step-by-step guide, please refer to the [Installation Guide](https://github.com/matondotnet/VRigRoid.Plugins/blob/main/MediaPipe4Unity/Installation.md) on Wiki.
 
 ### Supported Platforms
 
