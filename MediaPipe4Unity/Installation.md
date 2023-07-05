@@ -36,12 +36,12 @@ For each platform, check the build instruction.
 
 > :bell:
 >
-> - If not specified, the run command is the the `MediaPipe4Unity` folder
+> - If not specified, the run command is under `MediaPipe4Unity` folder
 
 [Linux](#linux)
 
 - [Docker](#docker)
-- [Arch Linux](#arch-linux)
+- [Arch Linux](#linux-no-docker)
 
 [macOS](#macos)
 
@@ -50,17 +50,15 @@ For each platform, check the build instruction.
 
 [Windows](#windows)
 
-- [Docker Windows Container](#docker-windows-container)
-- [Docker Linux Container](#docker-linux-container)
+- [Docker Windows Container](#windows-container)
+- [Docker Linux Container](#linux-container)
 - [Windows 10](#windows-10)
 
 ## Linux
 
-> :warning: 
-> 
+> :warning:
+>
 > - If the `GNU libc` version in the target machine is less than the version of it in the machine where `libmediapipe_c.so` is built, `libmediapipe_c.so` won't work.
-
-[^5]: You can still use Docker, but you need to write `Dockerfile` by yourself.
 
 ### Docker
 
@@ -85,7 +83,7 @@ docker run \
     -it mediapipe_unity:latest
 ```
 
-**3. Run [build command](#build-command) inside the container**
+**3. Run the [build command](#build-command) inside the container**
 
 ```sh
 # Build native libraries for Desktop CPU.
@@ -96,7 +94,7 @@ python build.py build --desktop cpu --opencv cmake -v
 python build.py build --desktop gpu --android arm64 --opencv cmake -v
 ```
 
-### Linux
+### Linux (no `docker`)
 
 > :warning:
 >
@@ -168,7 +166,7 @@ yay -S nuget
 pip install numpy
 ```
 
-**6. Run [build command](#build-command)**
+**6. Run the [build command](#build-command)**
 
 ## macOS
 
@@ -211,7 +209,7 @@ sudo xcode-select -s /Applications/Xcode.app
 xcode-select --install
 ```
 
-**6. Run [build command](#build-command)**
+**6. Run the [build command](#build-command)**
 
 ### M1 Mac
 
@@ -282,14 +280,14 @@ sudo xcode-select -s /Applications/Xcode.app
 xcode-select --install
 ```
 
-**7. Run [build command](#build-command)**
+**7. Run the [build command](#build-command)**
 
 ## Windows
 
 > :warning:
 >
 > - You MUST NOT set `core.autocrlf` in `.gitconfig` (run `git config -l`).
-> - To build libraries successfully, you need to check out the source code _as it is_ without changing the line feed code.
+> - To build libraries successfully, you need to check out the source code *as it is* without changing the line feed code.
 
 ### Windows Container
 
@@ -298,7 +296,7 @@ xcode-select --install
 > - You must either use [WSL](https://aka.ms/wsl) or Hyper-V. By default installation, Docker Desktop will use `WSL`.
 > - Once you choose `WSL`, make sure that you're using Windows 11 or Windows Server 2022 22H2 because of Windows 10 WSL brige incompatibility
 
-**1. Install [Docker Desktop](https://docs.docker.com/desktop/windows/install/), then switch to Windows container**
+**1. Install [Docker Desktop](https://docs.docker.com/desktop/windows/install/), then switch to the Windows container**
 
 **2. Build a Docker image**
 
@@ -322,7 +320,7 @@ docker run --cpus=16 --memory=32g ^
     -it mediapipe_unity:windows
 ```
 
-**4. Run [build command](#build-command) inside the container**
+**4. Run the [build command](#build-command) inside the container**
 
 ```bat
 python build.py build --desktop cpu --opencv cmake -vv
@@ -351,7 +349,7 @@ docker run --cpus=16 --memory=16g ^
     -it mediapipe_unity:linux
 ```
 
-**4. Run [build command](#build-command) inside the container**
+**4. Run the [build command](#build-command) inside the container**
 
 ```sh
 python build.py build --android arm64 -vv
@@ -395,7 +393,7 @@ nuget
 pip install numpy --user
 ```
 
-**8. Run [build command](#build-command)**
+**8. Run the [build command](#build-command)**
 
 ```bat
 python build.py build --desktop cpu --opencv=cmake -v
