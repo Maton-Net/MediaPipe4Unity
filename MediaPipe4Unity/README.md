@@ -1,6 +1,10 @@
 # MediaPipe4Unity Plugin
 
-This plugin is supported by @Google, where you can fork the project from here (Plugin version 0.10.1, MediaPipe version 0.8.4)
+```markdown
+Plugin version 0.12.0, MediaPipe version 0.8.4
+```
+
+This plugin is supported by @Google
 
 With this plugin, you can
 
@@ -13,7 +17,7 @@ With this plugin, you can
 
 ## :hammer_and_wrench: Installation
 
-This repository does not contain required libraries (e.g. `libmediapipe_c.so`, `Google.Protobuf.dll`, etc), so you **need to build them** first.\
+This repository does not contain libraries (e.g. `libmediapipe_c.so`, `Google.Protobuf.dll`, etc), so you **need to build them** first.\
 For step-by-step guide, please refer to the [Installation Guide](https://github.com/homuler/MediaPipeUnityPlugin/wiki/Installation-Guide) in Wiki.
 
 > :warning: libraries that can be built differ depending on your environment.
