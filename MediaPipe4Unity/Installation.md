@@ -1,4 +1,4 @@
-# MediaPipe4Unity
+# MediaPipe4Unity Installation Guide
 
 > :warning:
 >
