@@ -242,7 +242,8 @@ class BuildCommand(Command):
     return ['--linkopt={}'.format(l) for l in self.command_args.linkopt]
 
   def _build_opencv_switch(self):
-    commands = [f'--@opencv//:switch={self.command_args.opencv}']
+    switch = 'cmake_static' if self.command_args.opencv == 'cmake' else self.command_args.opencv
+    commands = [f'--@opencv//:switch={switch}']
 
     return commands
 
@@ -431,9 +432,9 @@ class Argument:
     build_command_parser.add_argument('--resources', action=argparse.BooleanOptionalAction, default=True)
     build_command_parser.add_argument('--analyzers', action=argparse.BooleanOptionalAction, default=False, help='Install Roslyn Analyzers')
     build_command_parser.add_argument('--compilation_mode', '-c', choices=['fastbuild', 'opt', 'dbg'], default='opt')
-    build_command_parser.add_argument('--opencv', choices=['local', 'cmake'], default='local', help='Decide to which OpenCV to link for Desktop native libraries')
+    build_command_parser.add_argument('--opencv', choices=['local', 'cmake', 'cmake_static', 'cmake_dynamic'], default='local', help='Decide to which OpenCV to link for Desktop native libraries')
     build_command_parser.add_argument('--solutions', nargs='+',
-        choices=['face_detection', 'face_mesh', 'iris', 'hands', 'pose', 'holistic', 'selfie_segmentation', 'hair_segmentation', 'object_detection'])
+        choices=['face_detection', 'face_mesh', 'iris', 'hands', 'pose', 'holistic', 'selfie_segmentation', 'hair_segmentation', 'object_detection', 'box_tracking', 'instant_motion_tracking', 'objectron'])
     build_command_parser.add_argument('--linkopt', '-l', action='append', help='Linker options')
     build_command_parser.add_argument('--apple_bitcode', action=argparse.BooleanOptionalAction, default=True, help='Embed bitcode to iOS Framework')
     build_command_parser.add_argument('--macos_universal', action=argparse.BooleanOptionalAction, default=False, help='Build a universal library')

@@ -1,7 +1,7 @@
 # MediaPipe4Unity
 
 ```markdown
-Plugin version 0.12.0, MediaPipe version 0.8.4
+Plugin version 0.11.0, MediaPipe version 0.8.4
 ```
 
 This plugin is supported by @Google

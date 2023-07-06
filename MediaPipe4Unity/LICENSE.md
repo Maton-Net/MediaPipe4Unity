@@ -2,6 +2,12 @@ MIT License
 
 Copyright (c) 2021 homuler
 
+Copyright (C) 2023 TheFlightSims, maton.net
+
+Assigned with `TFS-OSSH` License
+
+To know more about the assignment of extended license, see [here](https://github.com/matondotnet/.github/blob/main/guides/Licenses%2C%20Credits%20and%20Attributions.md)
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
